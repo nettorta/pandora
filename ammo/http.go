@@ -41,9 +41,19 @@ type HttpProvider struct {
 
 func (ap *HttpProvider) Start(ctx context.Context) error {
 	defer close(ap.sink)
-	ammoFile, err := os.Open(ap.ammoFileName)
-	if err != nil {
-		return fmt.Errorf("failed to open ammo source: %v", err)
+
+	var ammoFile *os.File
+	var err error
+
+	if ap.ammoFileName == "" {
+		ammoFile = os.Stdin
+		log.Println("reading HTTP ammo from STDIN")
+	} else {
+		ammoFile, err = os.Open(ap.ammoFileName)
+
+		if err != nil {
+			return fmt.Errorf("failed to open ammo source: %v", err)
+		}
 	}
 	defer ammoFile.Close()
 	ammoNumber := 0
