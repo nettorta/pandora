@@ -1,7 +1,7 @@
 {"uri": "/00", "method": "GET", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Host": "example.org", "User-Agent": "Pandora/0.0.1"}, "host": "example.org"}
 {"uri": "/01", "method": "GET", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Host": "example.org", "User-Agent": "Pandora/0.0.1"}, "host": "example.org"}
 {"tag": "hello", "uri": "/02", "method": "GET", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Host": "example.org", "User-Agent": "Pandora/0.0.1"}, "host": "example.org"}
-{"uri": "/03", "method": "GET", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Host": "example.org", "User-Agent": "Pandora/0.0.1"}, "host": "example.org"}
+{"uri": "/03", "method": "POST", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Host": "example.org", "User-Agent": "Pandora/0.0.1"}, "host": "example.org", "body": "Hello"}
 {"uri": "/04", "method": "GET", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Host": "example.org", "User-Agent": "Pandora/0.0.1"}, "host": "example.org"}
 {"uri": "/05", "method": "GET", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Host": "example.org", "User-Agent": "Pandora/0.0.1"}, "host": "example.org"}
 {"uri": "/06", "method": "GET", "headers": {"Accept": "*/*", "Accept-Encoding": "gzip, deflate", "Host": "example.org", "User-Agent": "Pandora/0.0.1"}, "host": "example.org"}

@@ -68,6 +68,17 @@ func TestHttpProvider(t *testing.T) {
 	assert.Equal(t, "/02", httpAmmo.Uri)
 	assert.Equal(t, "hello", httpAmmo.Tag)
 	assert.Equal(t, "GET", httpAmmo.Method)
+	assert.Equal(t, "", httpAmmo.Body)
+	assert.Len(t, httpAmmo.Headers, 4)
+
+	httpAmmo, casted = (ammos[3]).(*Http)
+	require.True(t, casted, "Ammo should have *Http type")
+
+	assert.Equal(t, "example.org", httpAmmo.Host)
+	assert.Equal(t, "/03", httpAmmo.Uri)
+	assert.Equal(t, "", httpAmmo.Tag)
+	assert.Equal(t, "POST", httpAmmo.Method)
+	assert.Equal(t, "Hello", httpAmmo.Body)
 	assert.Len(t, httpAmmo.Headers, 4)
 
 	// TODO: add test for decoding error
