@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"time"
+	"strings"
 
 	"golang.org/x/net/context"
 
@@ -64,7 +65,11 @@ func (hg *HttpGun) Shoot(ctx context.Context, a ammo.Ammo) error {
 	} else {
 		uri = "http://" + ha.Host + ha.Uri
 	}
-	req, err := http.NewRequest(ha.Method, uri, nil)
+	var bodyReader io.Reader
+	if ha.Body != "" {
+		bodyReader = strings.NewReader(ha.Body)
+	}
+	req, err := http.NewRequest(ha.Method, uri, bodyReader)
 	if err != nil {
 		log.Printf("Error making HTTP request: %s\n", err)
 		ss.Err = err
