@@ -19,7 +19,7 @@ type Http struct {
 	Uri     string
 	Headers map[string]string
 	Tag     string
-	Body	string
+	Body    string
 }
 
 // HttpJSONDecoder implements ammo.Decoder interface
