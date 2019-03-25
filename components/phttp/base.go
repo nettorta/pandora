@@ -119,6 +119,7 @@ func (b *BaseGun) Shoot(ammo Ammo) {
 	if b.DebugLog {
 		reqBodyBytes, _ := ioutil.ReadAll(res.Request.Body)
 		b.Log.Debug("Request URL", zap.Stringer("URL", res.Request.URL))
+		b.Log.Debug("Request Host", zap.String("Host", res.Request.Host))
 		for headerKey, header := range res.Request.Header {
 			for _, value := range header {
 				b.Log.Debug("Request header", zap.String("key", headerKey), zap.String("value", value))
