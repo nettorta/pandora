@@ -19,7 +19,7 @@ import (
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 
-	"github.com/yandex/pandora/lib/tag"
+	"github.com/nettorta/pandora/lib/tag"
 )
 
 var InvalidURLError = errors.New("string is not valid URL")

@@ -8,7 +8,7 @@ package schedule
 import (
 	"time"
 
-	"github.com/yandex/pandora/core"
+	"github.com/nettorta/pandora/core"
 )
 
 // NewOnce returns schedule that emits all passed operation token at start time.

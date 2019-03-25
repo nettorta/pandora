@@ -11,8 +11,8 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/lib/ioutil2"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/lib/ioutil2"
 )
 
 func NewBuffer(buf *bytes.Buffer) core.DataSource {

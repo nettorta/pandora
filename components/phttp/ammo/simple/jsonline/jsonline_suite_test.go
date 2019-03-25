@@ -17,9 +17,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/yandex/pandora/components/phttp/ammo/simple"
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/lib/ginkgoutil"
+	"github.com/nettorta/pandora/components/phttp/ammo/simple"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/lib/ginkgoutil"
 )
 
 func TestJsonline(t *testing.T) {

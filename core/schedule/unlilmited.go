@@ -8,7 +8,7 @@ package schedule
 import (
 	"time"
 
-	"github.com/yandex/pandora/core"
+	"github.com/nettorta/pandora/core"
 )
 
 // NewUnlimited returns schedule that generates unlimited ops for passed duration.

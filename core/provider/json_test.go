@@ -14,8 +14,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/core/datasource"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/core/datasource"
 )
 
 type testJSONAmmo struct {

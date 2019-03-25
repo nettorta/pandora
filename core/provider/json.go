@@ -10,9 +10,9 @@ import (
 
 	"github.com/json-iterator/go"
 
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/core/coreutil"
-	"github.com/yandex/pandora/lib/ioutil2"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/core/coreutil"
+	"github.com/nettorta/pandora/lib/ioutil2"
 )
 
 // NewJSONProvider returns generic core.Provider that reads JSON data from source and decodes it

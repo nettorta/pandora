@@ -10,8 +10,8 @@ import (
 	. "github.com/onsi/gomega"
 
 	"github.com/pkg/errors"
-	"github.com/yandex/pandora/lib/ginkgoutil"
-	"github.com/yandex/pandora/lib/netutil/mocks"
+	"github.com/nettorta/pandora/lib/ginkgoutil"
+	"github.com/nettorta/pandora/lib/netutil/mocks"
 )
 
 func TestNetutil(t *testing.T) {

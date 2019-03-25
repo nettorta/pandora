@@ -8,10 +8,10 @@ package main
 import (
 	"github.com/spf13/afero"
 
-	"github.com/yandex/pandora/cli"
-	"github.com/yandex/pandora/components/example/import"
-	"github.com/yandex/pandora/components/phttp/import"
-	"github.com/yandex/pandora/core/import"
+	"github.com/nettorta/pandora/cli"
+	"github.com/nettorta/pandora/components/example/import"
+	"github.com/nettorta/pandora/components/phttp/import"
+	"github.com/nettorta/pandora/core/import"
 )
 
 func main() {

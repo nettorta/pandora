@@ -3,7 +3,7 @@ package raw
 import (
 	"testing"
 
-	"github.com/yandex/pandora/lib/ginkgoutil"
+	"github.com/nettorta/pandora/lib/ginkgoutil"
 )
 
 func TestRaw(t *testing.T) {

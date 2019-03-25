@@ -14,8 +14,8 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/core/datasink"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/core/datasink"
 )
 
 type jsonTestData struct {

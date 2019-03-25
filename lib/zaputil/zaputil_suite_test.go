@@ -8,7 +8,7 @@ package zaputil
 import (
 	"testing"
 
-	"github.com/yandex/pandora/lib/ginkgoutil"
+	"github.com/nettorta/pandora/lib/ginkgoutil"
 )
 
 func TestZaputilSuite(t *testing.T) {

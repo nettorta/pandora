@@ -8,7 +8,7 @@ package provider
 import (
 	"context"
 
-	"github.com/yandex/pandora/core"
+	"github.com/nettorta/pandora/core"
 )
 
 // NewNum returns dummy provider, that provides 0, 1 .. n int sequence as ammo.

@@ -10,11 +10,11 @@ import (
 	"io"
 
 	"github.com/json-iterator/go"
-	"github.com/yandex/pandora/lib/ioutil2"
+	"github.com/nettorta/pandora/lib/ioutil2"
 
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/core/config"
-	"github.com/yandex/pandora/core/coreutil"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/core/config"
+	"github.com/nettorta/pandora/core/coreutil"
 )
 
 type JSONLineAggregatorConfig struct {

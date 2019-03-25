@@ -16,8 +16,8 @@ import (
 	"github.com/onsi/gomega/gexec"
 	"go.uber.org/zap"
 
-	"github.com/yandex/pandora/lib/ginkgoutil"
-	"github.com/yandex/pandora/lib/tag"
+	"github.com/nettorta/pandora/lib/ginkgoutil"
+	"github.com/nettorta/pandora/lib/tag"
 )
 
 var pandoraBin string
@@ -34,7 +34,7 @@ func TestAcceptanceTests(t *testing.T) {
 		args = append(args, "-tags", "debug")
 	}
 	var err error
-	pandoraBin, err = gexec.Build("github.com/yandex/pandora", args...)
+	pandoraBin, err = gexec.Build("github.com/nettorta/pandora", args...)
 	if err != nil {
 		t.Fatal(err)
 	}

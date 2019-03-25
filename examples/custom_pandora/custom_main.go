@@ -12,11 +12,11 @@ import (
 	"github.com/spf13/afero"
 	"go.uber.org/zap"
 
-	"github.com/yandex/pandora/cli"
-	"github.com/yandex/pandora/components/phttp/import"
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/core/import"
-	"github.com/yandex/pandora/core/register"
+	"github.com/nettorta/pandora/cli"
+	"github.com/nettorta/pandora/components/phttp/import"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/core/import"
+	"github.com/nettorta/pandora/core/register"
 )
 
 type Ammo struct {

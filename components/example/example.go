@@ -12,8 +12,8 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/core/aggregator/netsample"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/core/aggregator/netsample"
 )
 
 type Ammo struct {

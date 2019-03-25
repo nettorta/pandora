@@ -9,7 +9,7 @@ import (
 	"context"
 	"sync"
 
-	"github.com/yandex/pandora/core"
+	"github.com/nettorta/pandora/core"
 )
 
 func NewTest() *Test {

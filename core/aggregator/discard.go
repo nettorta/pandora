@@ -8,8 +8,8 @@ package aggregator
 import (
 	"context"
 
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/core/coreutil"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/core/coreutil"
 )
 
 // NewDiscard returns Aggregator that just throws reported ammo away.

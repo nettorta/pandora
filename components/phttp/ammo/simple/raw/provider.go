@@ -8,7 +8,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/spf13/afero"
 
-	"github.com/yandex/pandora/components/phttp/ammo/simple"
+	"github.com/nettorta/pandora/components/phttp/ammo/simple"
 )
 
 /*

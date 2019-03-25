@@ -7,8 +7,8 @@ Build-Depends: debhelper (>= 9),
                golang-go,
                golang-github-amahi-spdy-dev
 Standards-Version: 3.9.6
-Homepage: https://github.com/yandex/pandora
-XS-Go-Import-Path: github.com/yandex/pandora
+Homepage: https://github.com/nettorta/pandora
+XS-Go-Import-Path: github.com/nettorta/pandora
 
 Package: pandora
 Architecture: any

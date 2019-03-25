@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yandex/pandora/core"
+	"github.com/nettorta/pandora/core"
 )
 
 type CompositeConf struct {

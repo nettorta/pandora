@@ -8,7 +8,7 @@ package coreutil
 import (
 	"reflect"
 
-	"github.com/yandex/pandora/core"
+	"github.com/nettorta/pandora/core"
 )
 
 // ResetReusedAmmo sets to zero any ammo.

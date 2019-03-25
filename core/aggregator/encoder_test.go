@@ -19,11 +19,11 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/core/aggregator/mocks"
-	"github.com/yandex/pandora/core/mocks"
-	"github.com/yandex/pandora/lib/ioutil2/mocks"
-	"github.com/yandex/pandora/lib/testutil"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/core/aggregator/mocks"
+	"github.com/nettorta/pandora/core/mocks"
+	"github.com/nettorta/pandora/lib/ioutil2/mocks"
+	"github.com/nettorta/pandora/lib/testutil"
 )
 
 type EncoderAggregatorTester struct {

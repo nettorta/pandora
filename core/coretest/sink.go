@@ -15,7 +15,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/yandex/pandora/core"
+	"github.com/nettorta/pandora/core"
 )
 
 func AssertSinkEqualStdStream(t *testing.T, expectedPtr **os.File, getSink func() core.DataSink) {

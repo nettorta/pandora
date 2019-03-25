@@ -8,8 +8,8 @@ package simple
 import (
 	"net/http"
 
-	"github.com/yandex/pandora/components/phttp"
-	"github.com/yandex/pandora/core/aggregator/netsample"
+	"github.com/nettorta/pandora/components/phttp"
+	"github.com/nettorta/pandora/core/aggregator/netsample"
 )
 
 type Ammo struct {

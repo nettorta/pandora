@@ -15,8 +15,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/lib/testutil"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/lib/testutil"
 )
 
 func AssertSourceEqualStdStream(t *testing.T, expectedPtr **os.File, getSource func() core.DataSource) {

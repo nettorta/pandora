@@ -16,9 +16,9 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 
-	"github.com/yandex/pandora/core/config"
-	"github.com/yandex/pandora/core/engine"
-	"github.com/yandex/pandora/lib/zaputil"
+	"github.com/nettorta/pandora/core/config"
+	"github.com/nettorta/pandora/core/engine"
+	"github.com/nettorta/pandora/lib/zaputil"
 )
 
 const Version = "0.2.0"

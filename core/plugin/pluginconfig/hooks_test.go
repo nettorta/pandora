@@ -13,8 +13,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/yandex/pandora/core/config"
-	"github.com/yandex/pandora/core/plugin"
+	"github.com/nettorta/pandora/core/config"
+	"github.com/nettorta/pandora/core/plugin"
 )
 
 func init() {

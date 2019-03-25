@@ -12,12 +12,12 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/core/config"
-	"github.com/yandex/pandora/core/coretest"
-	"github.com/yandex/pandora/core/plugin"
-	"github.com/yandex/pandora/lib/ginkgoutil"
-	"github.com/yandex/pandora/lib/testutil"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/core/config"
+	"github.com/nettorta/pandora/core/coretest"
+	"github.com/nettorta/pandora/core/plugin"
+	"github.com/nettorta/pandora/lib/ginkgoutil"
+	"github.com/nettorta/pandora/lib/testutil"
 )
 
 func TestImport(t *testing.T) {

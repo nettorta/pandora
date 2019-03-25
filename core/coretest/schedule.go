@@ -9,7 +9,7 @@ import (
 	"time"
 
 	. "github.com/onsi/gomega"
-	"github.com/yandex/pandora/core"
+	"github.com/nettorta/pandora/core"
 )
 
 func ExpectScheduleNextsStartAt(sched core.Schedule, startAt time.Time, nexts ...time.Duration) {

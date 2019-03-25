@@ -12,8 +12,8 @@ import (
 	"github.com/spf13/afero"
 
 	"github.com/pkg/errors"
-	"github.com/yandex/pandora/components/phttp/ammo/simple"
-	"github.com/yandex/pandora/core"
+	"github.com/nettorta/pandora/components/phttp/ammo/simple"
+	"github.com/nettorta/pandora/core"
 )
 
 const testFile = "./ammo.uri"

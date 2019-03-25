@@ -4,7 +4,7 @@ go:
   - 1.8.3
   - tip
 
-go_import_path: github.com/yandex/pandora
+go_import_path: github.com/nettorta/pandora
 
 before_install:
   # Build go tools in separate $GOPATH.

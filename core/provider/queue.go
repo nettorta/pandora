@@ -8,7 +8,7 @@ package provider
 import (
 	"sync"
 
-	"github.com/yandex/pandora/core"
+	"github.com/nettorta/pandora/core"
 )
 
 type AmmoQueueConfig struct {

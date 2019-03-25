@@ -8,9 +8,9 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/core/coretest"
-	"github.com/yandex/pandora/lib/ginkgoutil"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/core/coretest"
+	"github.com/nettorta/pandora/lib/ginkgoutil"
 )
 
 func TestSchedule(t *testing.T) {

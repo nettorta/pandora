@@ -15,8 +15,8 @@ import (
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/core/aggregator/netsample"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/core/aggregator/netsample"
 )
 
 const (
@@ -117,7 +117,12 @@ func (b *BaseGun) Shoot(ammo Ammo) {
 		return
 	}
 	if b.DebugLog {
-		b.Log.Debug("Got response", zap.Int("status", res.StatusCode))
+		reqBodyBytes, _ := ioutil.ReadAll(res.Request.Body)
+		b.Log.Debug("Request URL", zap.Stringer("URL", res.Request.URL))
+		b.Log.Debug("Request Host", zap.String("URL", res.Request.Host))
+		b.Log.Debug("Request Header User Agent", zap.String("User Agent", res.Request.Header.Get("User-Agent")))
+		b.Log.Debug("Request Body", zap.ByteString("Body", reqBodyBytes))
+		b.Log.Debug("Response code", zap.Int("status", res.StatusCode))
 		bodyBytes, _ := ioutil.ReadAll(res.Body)
 		b.Log.Debug("Response body", zap.ByteString("Body", bodyBytes))
 	}

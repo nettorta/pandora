@@ -11,7 +11,7 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/pkg/errors"
 
-	"github.com/yandex/pandora/core/config"
+	"github.com/nettorta/pandora/core/config"
 )
 
 // ptest contains examples and utils for testing plugin pkg

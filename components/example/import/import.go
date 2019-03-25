@@ -6,8 +6,8 @@
 package example
 
 import (
-	. "github.com/yandex/pandora/components/example"
-	"github.com/yandex/pandora/core/register"
+	. "github.com/nettorta/pandora/components/example"
+	"github.com/nettorta/pandora/core/register"
 )
 
 func Import() {

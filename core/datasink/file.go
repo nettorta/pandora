@@ -11,7 +11,7 @@ import (
 
 	"github.com/spf13/afero"
 
-	"github.com/yandex/pandora/core"
+	"github.com/nettorta/pandora/core"
 )
 
 // TODO(skipor): gzip on flag

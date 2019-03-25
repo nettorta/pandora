@@ -11,8 +11,8 @@ import (
 	"go.uber.org/atomic"
 	"go.uber.org/zap"
 
-	"github.com/yandex/pandora/core"
-	"github.com/yandex/pandora/core/coreutil"
+	"github.com/nettorta/pandora/core"
+	"github.com/nettorta/pandora/core/coreutil"
 )
 
 type ReporterConfig struct {

@@ -16,9 +16,9 @@ import (
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 
-	"github.com/yandex/pandora/core/config"
-	"github.com/yandex/pandora/core/plugin"
-	"github.com/yandex/pandora/lib/tag"
+	"github.com/nettorta/pandora/core/config"
+	"github.com/nettorta/pandora/core/plugin"
+	"github.com/nettorta/pandora/lib/tag"
 )
 
 func AddHooks() {
