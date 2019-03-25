@@ -118,6 +118,8 @@ func (b *BaseGun) Shoot(ammo Ammo) {
 	}
 	if b.DebugLog {
 		b.Log.Debug("Got response", zap.Int("status", res.StatusCode))
+		bodyBytes, _ := ioutil.ReadAll(res.Body)
+		b.Log.Debug("Response body", zap.ByteString("Body", bodyBytes))
 	}
 	sample.SetProtoCode(res.StatusCode)
 	defer res.Body.Close()
