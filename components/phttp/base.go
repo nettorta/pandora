@@ -119,12 +119,24 @@ func (b *BaseGun) Shoot(ammo Ammo) {
 	if b.DebugLog {
 		reqBodyBytes, _ := ioutil.ReadAll(res.Request.Body)
 		b.Log.Debug("Request URL", zap.Stringer("URL", res.Request.URL))
-		b.Log.Debug("Request Host", zap.String("URL", res.Request.Host))
-		b.Log.Debug("Request Header User Agent", zap.String("User Agent", res.Request.Header.Get("User-Agent")))
-		b.Log.Debug("Request Body", zap.ByteString("Body", reqBodyBytes))
+		for headerKey, header := range res.Request.Header {
+			for _, value := range header {
+				b.Log.Debug("Request header", zap.String("key", headerKey), zap.String("value", value))
+			}
+		}
+		if len(reqBodyBytes) > 0 {
+			b.Log.Debug("Request Body", zap.ByteString("Body", reqBodyBytes))
+		}
 		b.Log.Debug("Response code", zap.Int("status", res.StatusCode))
+		for headerKey, header := range res.Header {
+			for _, value := range header {
+				b.Log.Debug("Response header", zap.String("key", headerKey), zap.String("value", value))
+			}
+		}
 		bodyBytes, _ := ioutil.ReadAll(res.Body)
-		b.Log.Debug("Response body", zap.ByteString("Body", bodyBytes))
+		if len(bodyBytes) > 0 {
+			b.Log.Debug("Response body", zap.ByteString("Body", bodyBytes))
+		}
 	}
 	sample.SetProtoCode(res.StatusCode)
 	defer res.Body.Close()
