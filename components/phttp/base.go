@@ -115,9 +115,6 @@ func (b *BaseGun) Shoot(ammo Ammo) {
 		b.Log.Warn("Request fail", zap.Error(err))
 		return
 	}
-	if b.DebugLog {
-		b.DebugLogging(res)
-	}
 	sample.SetProtoCode(res.StatusCode)
 	defer res.Body.Close()
 	// TODO: measure body read time
@@ -126,7 +123,9 @@ func (b *BaseGun) Shoot(ammo Ammo) {
 		b.Log.Warn("Body read fail", zap.Error(err))
 		return
 	}
-	// TODO: verbose logging
+	if b.DebugLog {
+		b.DebugLogging(res)
+	}
 }
 
 func (b *BaseGun) Close() error {
@@ -141,6 +140,7 @@ func (b *BaseGun) DebugLogging(res *http.Response) {
 	reqBody, _ := ioutil.ReadAll(res.Request.Body)
 	b.Log.Debug(
 		"\nRequest debug info\n===================\n",
+		zap.Any("Request", res.Request),
 		zap.String("URL", res.Request.URL.String()),
 		zap.String("Host", res.Request.Host),
 		zap.Any("Headers", res.Request.Header),
@@ -150,6 +150,7 @@ func (b *BaseGun) DebugLogging(res *http.Response) {
 	respBody, _ := ioutil.ReadAll(res.Body)
 	b.Log.Debug(
 		"\nResponse debug info\n===================\n",
+		zap.Any("Response", res),
 		zap.Int("Status Code", res.StatusCode),
 		zap.String("Status", res.Status),
 		zap.Any("Headers", res.Header),
