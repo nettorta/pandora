@@ -11,6 +11,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"strings"
 
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
@@ -117,27 +118,7 @@ func (b *BaseGun) Shoot(ammo Ammo) {
 		return
 	}
 	if b.DebugLog {
-		reqBodyBytes, _ := ioutil.ReadAll(res.Request.Body)
-		b.Log.Debug("Request URL", zap.Stringer("URL", res.Request.URL))
-		b.Log.Debug("Request Host", zap.String("Host", res.Request.Host))
-		for headerKey, header := range res.Request.Header {
-			for _, value := range header {
-				b.Log.Debug("Request header", zap.String("key", headerKey), zap.String("value", value))
-			}
-		}
-		if len(reqBodyBytes) > 0 {
-			b.Log.Debug("Request Body", zap.ByteString("Body", reqBodyBytes))
-		}
-		b.Log.Debug("Response code", zap.Int("status", res.StatusCode))
-		for headerKey, header := range res.Header {
-			for _, value := range header {
-				b.Log.Debug("Response header", zap.String("key", headerKey), zap.String("value", value))
-			}
-		}
-		bodyBytes, _ := ioutil.ReadAll(res.Body)
-		if len(bodyBytes) > 0 {
-			b.Log.Debug("Response body", zap.ByteString("Body", bodyBytes))
-		}
+		b.DebugLogging(res)
 	}
 	sample.SetProtoCode(res.StatusCode)
 	defer res.Body.Close()
@@ -155,6 +136,31 @@ func (b *BaseGun) Close() error {
 		return b.OnClose()
 	}
 	return nil
+}
+
+func (b *BaseGun) DebugLogging(res *http.Response) {
+	// req headers
+	headers := make(map[string]string)
+	for key, val := range res.Request.Header {
+		headers[key] = strings.Join(val, ",")
+	}
+	// req body
+	reqBody, _ := ioutil.ReadAll(res.Request.Body)
+	b.Log.Debug(
+		"Request debug info\n=============\n",
+		zap.Stringer("URL", res.Request.URL),
+		zap.String("Host", res.Request.Host),
+		zap.Any("Headers", headers),
+		zap.ByteString("Body", reqBody))
+
+	// resp body
+	respBody, _ := ioutil.ReadAll(res.Body)
+	b.Log.Debug(
+		"Response debug info\n=============\n",
+		zap.Int("Status Code", res.StatusCode),
+		zap.String("Status", res.Status),
+		zap.Any("Headers", res.Header),
+		zap.ByteString("Body", respBody))
 }
 
 func autotag(depth int, URL *url.URL) string {
