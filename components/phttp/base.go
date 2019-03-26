@@ -136,19 +136,16 @@ func (b *BaseGun) Close() error {
 }
 
 func (b *BaseGun) DebugLogging(res *http.Response) {
-	// req body
 	reqBody, _ := ioutil.ReadAll(res.Request.Body)
 	b.Log.Debug(
-		"\nRequest debug info\n===================\n",
-		zap.String("URL", res.Request.RequestURI),
+		"Request debug info",
+		zap.String("URL", res.Request.URL.String()),
 		zap.String("Host", res.Request.Host),
 		zap.Any("Headers", res.Request.Header),
 		zap.ByteString("Body", reqBody))
-
-	// resp body
 	respBody, _ := ioutil.ReadAll(res.Body)
 	b.Log.Debug(
-		"\nResponse debug info\n===================\n",
+		"Response debug info",
 		zap.Int("Status Code", res.StatusCode),
 		zap.String("Status", res.Status),
 		zap.Any("Headers", res.Header),
