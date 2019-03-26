@@ -7,14 +7,12 @@ package phttp
 
 import (
 	"context"
+	"github.com/pkg/errors"
+	"go.uber.org/zap"
 	"io"
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"strings"
-
-	"github.com/pkg/errors"
-	"go.uber.org/zap"
 
 	"github.com/nettorta/pandora/core"
 	"github.com/nettorta/pandora/core/aggregator/netsample"
@@ -139,24 +137,19 @@ func (b *BaseGun) Close() error {
 }
 
 func (b *BaseGun) DebugLogging(res *http.Response) {
-	// req headers
-	headers := make(map[string]string)
-	for key, val := range res.Request.Header {
-		headers[key] = strings.Join(val, ",")
-	}
 	// req body
 	reqBody, _ := ioutil.ReadAll(res.Request.Body)
 	b.Log.Debug(
-		"Request debug info\n=============\n",
+		"\nRequest debug info\n=============\n",
 		zap.Stringer("URL", res.Request.URL),
 		zap.String("Host", res.Request.Host),
-		zap.Any("Headers", headers),
+		zap.Any("Headers", res.Request.Header),
 		zap.ByteString("Body", reqBody))
 
 	// resp body
 	respBody, _ := ioutil.ReadAll(res.Body)
 	b.Log.Debug(
-		"Response debug info\n=============\n",
+		"\nResponse debug info\n=============\n",
 		zap.Int("Status Code", res.StatusCode),
 		zap.String("Status", res.Status),
 		zap.Any("Headers", res.Header),
