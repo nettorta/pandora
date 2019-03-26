@@ -140,8 +140,8 @@ func (b *BaseGun) DebugLogging(res *http.Response) {
 	// req body
 	reqBody, _ := ioutil.ReadAll(res.Request.Body)
 	b.Log.Debug(
-		"\nRequest debug info\n=============\n",
-		zap.Stringer("URL", res.Request.URL),
+		"\nRequest debug info\n===================\n",
+		zap.Any("URL", res.Request.URL),
 		zap.String("Host", res.Request.Host),
 		zap.Any("Headers", res.Request.Header),
 		zap.ByteString("Body", reqBody))
@@ -149,7 +149,7 @@ func (b *BaseGun) DebugLogging(res *http.Response) {
 	// resp body
 	respBody, _ := ioutil.ReadAll(res.Body)
 	b.Log.Debug(
-		"\nResponse debug info\n=============\n",
+		"\nResponse debug info\n===================\n",
 		zap.Int("Status Code", res.StatusCode),
 		zap.String("Status", res.Status),
 		zap.Any("Headers", res.Header),
