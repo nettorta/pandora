@@ -24,6 +24,7 @@ class Plugin(GeneratorPlugin):
     OPTION_CONFIG = "config"
     SECTION = "pandora"
     DEFAULT_REPORT_FILE = "phout.log"
+    DEFAULT_PORT = 1234
 
     def __init__(self, core, cfg, name):
         super(Plugin, self).__init__(core, cfg, name)
@@ -34,7 +35,8 @@ class Plugin(GeneratorPlugin):
         self.pandora_config_file = None
         self.config_contents = None
         self.custom_config = False
-        self.expvar = True
+        self.expvar = None
+        self.expvar_port = None
         self.sample_log = None
         self.__address = None
         self.__schedule = None
@@ -48,13 +50,11 @@ class Plugin(GeneratorPlugin):
     def get_available_options(self):
         opts = [
             "pandora_cmd", "buffered_seconds",
-            "config_content", "config_file",
-            "expvar"
+            "config_content", "config_file"
         ]
         return opts
 
     def configure(self):
-        self.expvar = self.get_option("expvar")
         self.pandora_cmd = self.get_option("pandora_cmd")
         self.buffered_seconds = self.get_option("buffered_seconds")
         self.affinity = self.get_option("affinity", "")
@@ -97,6 +97,15 @@ class Plugin(GeneratorPlugin):
         add result file section
         :param dict config: pandora config
         """
+        # get expvar parameters
+        if config.get("monitoring"):
+            if config["monitoring"].get("expvar"):
+                self.expvar = config["monitoring"]["expvar"].get("enabled")
+                if config["monitoring"]["expvar"].get("port"):
+                    self.expvar_port = config["monitoring"]["expvar"].get("port")
+                else:
+                    self.expvar_port = self.DEFAULT_PORT
+
         # FIXME this is broken for custom ammo providers due to interface incompatibility
         # FIXME refactor pandora plx
         for pool in config['pools']:
@@ -111,12 +120,6 @@ class Plugin(GeneratorPlugin):
                     destination=self.DEFAULT_REPORT_FILE,
                     type='phout',
                 )
-        if not config.get("monitoring"):
-            config["monitoring"] = {
-                "expvar": {
-                    "enabled": self.expvar,
-                }
-            }
         return config
 
     @property
@@ -167,7 +170,7 @@ class Plugin(GeneratorPlugin):
 
     def get_stats_reader(self):
         if self.stats_reader is None:
-            self.stats_reader = PandoraStatsReader(self.expvar)
+            self.stats_reader = PandoraStatsReader(self.expvar, self.expvar_port)
         return self.stats_reader
 
     def prepare_test(self):
