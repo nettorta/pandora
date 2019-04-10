@@ -35,7 +35,7 @@ func BenchmarkRawDecoderWithHeaders(b *testing.B) {
 			if header.key == "Host" {
 				req.URL.Host = header.value
 			} else {
-				req.Header.Set(header.key, header.value)
+				req.Header[header.key] = []string{header.value}
 			}
 		}
 	}
